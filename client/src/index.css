@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — ExoStock Theme
+   ============================================================ */
+:root {
+  /* --- Core Colors --- */
+  --bg-page: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-muted: #f4f9ff;
+  --bg-strong: #0d5b96;
+  --text-default: #1f2937;
+  --text-muted: #4b5563;
+  --text-inverse: #ffffff;
+  --primary: #0d5b96;
+  --primary-dark: #0a4e84;
+  --primary-light: #d4e6fb;
+  --border-default: rgba(13, 91, 150, 0.12);
+  --border-soft: rgba(13, 91, 150, 0.08);
+
+  /* --- Semantic Colors --- */
+  --success: #28a745;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  --info: #17a2b8;
+
+  /* --- Border Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 6px 20px rgba(13, 91, 150, 0.08);
+  --shadow-md: 0 12px 30px rgba(13, 91, 150, 0.12);
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-default);
+  background-color: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:where(h1, h2, h3, h4, h5, h6):not([class]) {
+  color: var(--primary);
+  font-family: "Manrope", sans-serif;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+:where(p, span, button, input, label, li):not([class]) {
+  color: var(--text-default);
+}
+
+:where(a):not([class]) {
+  color: var(--primary);
+}
+
+/* ============================================================
+   APP-WIDE EXOSTOCK BLUE THEME
+   Keeps hardcoded neutral UI classes aligned with the login form.
+   ============================================================ */
+[class*="text-[#212529]"],
+[class*="text-[#343A40]"],
+[class*="text-[#495057]"],
+[class*="text-[#6C757D]"] {
+  color: var(--primary);
+}
+
+[class*="border-[#DEE2E6]"],
+[class*="border-[#E5E7EB]"],
+[class*="border-[#ADB5BD]"],
+[class*="border-[#D1D5DB]"],
+[class*="border-gray-"] {
+  border-color: var(--primary);
+}
+
+input,
+select,
+textarea {
+  color: var(--primary);
+  border-color: var(--primary);
+  caret-color: var(--primary);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 91, 150, 0.14);
+}
+
+label {
+  color: var(--primary);
+}
+
+::placeholder {
+  color: #8aa9c4;
+}
+
+.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.bg-surface {
+  background-color: var(--bg-surface) !important;
+}
+
+.bg-muted {
+  background-color: var(--bg-muted) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid rgba(13, 91, 150, 0.18);
+}
+
+.card-surface {
+  background-color: var(--bg-surface);
+  color: var(--text-default);
+}
+
+.section-surface {
+  background-color: var(--bg-surface);
+  color: var(--text-default);
+}
+
+.section-primary {
+  background-color: var(--bg-page);
+  color: var(--text-default);
+}
+
+/* Material Symbols support */
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.text-hero-xl {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-hero-lg {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.text-hero-md {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   SCROLLBAR STYLING
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+}
+
+/* Remove spinner arrows - Chrome, Edge, Safari */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove spinner arrows - Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* ============================================================
+   RESPONSIVE SAFEGUARDS
+   Prevents fixed-width panels/tables/forms from breaking small screens.
+   ============================================================ */
+html,
+body,
+#root {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+main {
+  max-width: 100vw;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .p-16 {
+    padding: 1.25rem;
+  }
+
+  .p-10,
+  .p-8,
+  .p-6 {
+    padding: 1rem;
+  }
+
+  .px-8,
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .py-8,
+  .py-6 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  [class*="max-w-"] {
+    max-width: calc(100vw - 1.5rem);
+  }
+
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4,
+  .grid-cols-5,
+  .grid-cols-12 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .text-\[28px\] {
+    font-size: 22px;
+  }
+
+  .text-3xl,
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+
+  .h-\[48px\],
+  .h-\[44px\],
+  .h-\[42px\],
+  .h-\[40px\],
+  .h-\[36px\] {
+    min-height: 42px;
+    height: auto;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .px-4 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .gap-6,
+  .gap-5,
+  .gap-4 {
+    gap: 0.75rem;
+  }
+
+  .rounded-2xl {
+    border-radius: 0.75rem;
+  }
+}

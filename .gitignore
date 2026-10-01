@@ -1,0 +1,15 @@
+FEATURES_ROADMAP.md
+PROJECT_BUGS_README.md
+PROJECT_IMPLEMENTATION_LEFT_README.md
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.env
+.env.*
+.DS_Store
+coverage/
+
+# Secrets / archives
+server.zip
+server/testmongo.js
